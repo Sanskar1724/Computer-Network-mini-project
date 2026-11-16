@@ -1,0 +1,30 @@
+NEXASOFT OFFICE LAN - VALIDATION RESULTS
+============================================================================================
+Generated: 2026-11-15T16:25:33
+Model: Python packet-flow validation (Packet Tracer unavailable)
+Hosts: 74  |  DHCP leases: 64  |  Tests: 18/18 passed
+
+ID   AREA         TEST                                                   EXPECTED           ACTUAL             RESULT
+---------------------------------------------------------------------------------------------------------------------
+T01  DHCP         Engineering PC obtains a lease                         DHCP ACK           DHCP ACK           PASS
+T02  DHCP         Staff PC obtains a lease                               DHCP ACK           DHCP ACK           PASS
+T03  DHCP         Guest Wi-Fi client obtains a lease                     DHCP ACK           DHCP ACK           PASS
+T04  Addressing   DHCP pools allocate 64 unique addresses                64 unique leases   64 unique leases   PASS
+T05  Switching    Staff PC reaches staff printer in VLAN 20              ALLOW              ALLOW              PASS
+T06  Routing      Engineering PC reaches ERP server in VLAN 10           ALLOW              ALLOW              PASS
+T07  DNS          Staff PC reaches internal DNS server                   ALLOW              ALLOW              PASS
+T08  DNS          Staff PC resolves ERP name                             DNS A record       A 192.168.10.12    PASS
+T09  Security     Guest client cannot query internal DNS                 DENY               DENY               PASS
+T10  Security     Guest client cannot reach file server                  DENY               DENY               PASS
+T11  NAT          Guest client reaches internet through NAT              ALLOW + NAT        ALLOW + NAT        PASS
+T12  NAT          Staff client reaches internet through NAT              ALLOW + NAT        ALLOW + NAT        PASS
+T13  Security     Staff client cannot reach management switch            DENY               DENY               PASS
+T14  Security     Engineering client cannot reach management switch      DENY               DENY               PASS
+T15  Security     Server can reach management switch                     ALLOW              ALLOW              PASS
+T16  Wireless     Guest wireless clients are isolated from each other    DENY               DENY               PASS
+T17  Switching    ARP broadcast is contained within VLAN 30              VLAN 30 only       VLAN 30 only       PASS
+T18  DNS          Management switch resolves intranet name               DNS A record       A 192.168.10.10    PASS
+
+DHCP leases by VLAN: VLAN 20=24  VLAN 30=28  VLAN 40=12
+NAT translations: 2  |  DNS queries logged: 2
+Evidence files: dhcp_leases.csv, nat_table.csv, dns_log.csv, packet_trace.txt

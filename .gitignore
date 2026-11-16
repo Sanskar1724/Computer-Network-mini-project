@@ -1,0 +1,16 @@
+# Final report (contains personal details)
+*.docx
+*.pdf
+06_Scripts/student_details.json
+
+# Session logs
+session-*.md
+
+# Junk
+__pycache__/
+*.pyc
+~$*
+*.tmp
+.DS_Store
+Thumbs.db
+.claude/

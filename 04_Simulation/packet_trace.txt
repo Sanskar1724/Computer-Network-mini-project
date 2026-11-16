@@ -1,0 +1,54 @@
+PACKET TRACE - NEXASOFT OFFICE LAN
+============================================================================================
+
+T01 - DHCP DORA for ENG-PC-01
+  1. ENG-PC-01 sends DHCPDISCOVER from 0.0.0.0 to 255.255.255.255 (xid 0xA321284)
+  2. NXS-ENG-SW floods the frame only inside VLAN 30
+  3. NXS-CORE-SW forwards the broadcast to NXS-GW subinterface G0/0.30
+  4. NXS-GW selects 192.168.10.66 from pool 192.168.10.66-192.168.10.124 (server 192.168.10.65)
+  5. NXS-GW sends DHCPOFFER 192.168.10.66 with DNS 192.168.10.10
+  6. ENG-PC-01 sends DHCPREQUEST for 192.168.10.66
+  7. NXS-GW sends DHCPACK; lease 86400 s
+  Result: PASS - DORA completed with 192.168.10.65; lease 192.168.10.66; pool 192.168.10.66-192.168.10.124; DNS 192.168.10.10; lease 86400 s
+
+T06 - Engineering PC reaches ERP server in VLAN 10
+  Source: ENG-PC-01
+  Destination: SRV-ERP
+  Path: ENG-PC-01 -> NXS-ENG-SW -> NXS-CORE-SW -> NXS-GW G0/0.30 -> NXS-CORE-SW -> SRV-ERP
+  Decision: ALLOW - Inter-VLAN route via router-on-a-stick
+  Result: PASS
+
+T09 - Guest client cannot query internal DNS
+  Source: GUEST-WIFI-01
+  Destination: SRV-DNS
+  Path: GUEST-WIFI-01 -> AP-STAFF -> NXS-CORE-SW -> NXS-GW G0/0.40 -> NXS-CORE-SW -> SRV-DNS [DENY at NXS-GW G0/0.40]
+  Decision: DENY - GUEST-IN ACL denies all traffic to 192.168.10.0/24
+  Result: PASS
+
+T11 - Guest client reaches internet through NAT
+  Source: GUEST-WIFI-01
+  Destination: 8.8.8.8
+  Path: GUEST-WIFI-01 -> AP-STAFF -> NXS-CORE-SW -> NXS-GW G0/0.40 -> ISP-RTR -> INTERNET
+  Decision: ALLOW + NAT - Default route permits internet access with NAT/PAT; translation 203.0.113.2:40001 -> 8.8.8.8:443
+  Result: PASS
+
+T13 - Staff client cannot reach management switch
+  Source: STF-PC-01
+  Destination: NXS-CORE-SW
+  Path: STF-PC-01 -> NXS-CORE-SW -> NXS-GW G0/0.20 -> NXS-CORE-SW [DENY at NXS-GW G0/0.20]
+  Decision: DENY - STAFF-MGMT ACL denies VLAN 20/30 hosts access to VLAN 99
+  Result: PASS
+
+T16 - Guest wireless clients are isolated from each other
+  Source: GUEST-WIFI-01
+  Destination: GUEST-WIFI-02
+  Path: GUEST-WIFI-01 -> AP-STAFF -> GUEST-WIFI-02 [DENY at AP client isolation]
+  Decision: DENY - Guest client isolation drops station-to-station frame at the AP
+  Result: PASS
+
+T17 - ARP broadcast is contained within VLAN 30
+  Source: ENG-PC-01
+  Destination: 255.255.255.255
+  Path: ENG-PC-01 -> NXS-ENG-SW -> VLAN 30 ports
+  Decision: VLAN 30 only - Broadcast flooded only on engineering access ports; no router flooding
+  Result: PASS

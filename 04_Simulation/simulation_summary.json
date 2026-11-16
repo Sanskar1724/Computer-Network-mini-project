@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-11-15T16:25:33",
+  "model": "Python packet-flow validation model (no Packet Tracer)",
+  "scope": "VLAN, DHCP, DNS, ACL, NAT/PAT and wireless isolation logic",
+  "hosts": 74,
+  "dhcp_leases": 64,
+  "dhcp_by_vlan": {
+    "20": 24,
+    "30": 28,
+    "40": 12
+  },
+  "tests_total": 18,
+  "tests_passed": 18,
+  "tests_failed": 0,
+  "nat_translations": 2,
+  "management_network": "192.168.10.192/28",
+  "public_nat": "203.0.113.2",
+  "results": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+  ]
+}

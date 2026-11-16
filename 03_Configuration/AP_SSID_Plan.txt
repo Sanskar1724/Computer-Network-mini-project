@@ -1,0 +1,42 @@
+NEXASOFT OFFICE LAN - AP DEPLOYMENT PLAN
+================================================================
+Controller mode: autonomous / embedded controller
+Management VLAN: 99 (192.168.10.192/28); gateway 192.168.10.193
+AP trunks: native VLAN 99; AP-ENG allows 20,30,40,99; other APs allow 20,40,99
+PoE: 802.3at; WPA2-AES; management SSID not broadcast
+
+AP-ENG
+------
+Management IP: 192.168.10.196/28
+Ceiling position: (15, 29) ft; coverage area: Engineering / east wing
+Switch port: NXS-CORE-SW Gi1/0/24 (trunk 20,30,40,99)
+2.4 GHz channel: 1; 5 GHz channel: 36; power: auto
+SSIDs:
+  NEXA-ENG    -> VLAN 30  WPA2-AES  (engineering devices)
+  NEXA-STAFF  -> VLAN 20  WPA2-AES  (staff devices)
+  NEXA-GUEST  -> VLAN 40  WPA2-AES  client isolation enabled
+
+AP-STAFF
+--------
+Management IP: 192.168.10.197/28
+Ceiling position: (22, 7) ft; coverage area: Conference / reception / staff
+Switch port: NXS-CORE-SW Gi1/0/25 (trunk 20,40,99)
+2.4 GHz channel: 6; 5 GHz channel: 44; power: auto
+SSIDs:
+  NEXA-STAFF  -> VLAN 20  WPA2-AES  (staff devices)
+  NEXA-GUEST  -> VLAN 40  WPA2-AES  client isolation enabled
+
+AP-MGMT
+-------
+Management IP: 192.168.10.198/28
+Ceiling position: (62, 34) ft; coverage area: Management / HR / west wing
+Switch port: NXS-CORE-SW Gi1/0/26 (trunk 20,40,99)
+2.4 GHz channel: 11; 5 GHz channel: 149; power: auto
+SSIDs:
+  NEXA-STAFF  -> VLAN 20  WPA2-AES  (staff devices)
+  NEXA-GUEST  -> VLAN 40  WPA2-AES  client isolation enabled
+
+Guest policy: internet-only; GUEST-IN ACL blocks 192.168.10.0/24.
+Staff policy: internal access; VLAN 20/30 denied to management VLAN 99.
+Guest DHCP DNS: 8.8.8.8; staff and engineering DHCP DNS: 192.168.10.10.
+SSH management: only 192.168.10.192/28 may reach the AP management GUI/CLI.

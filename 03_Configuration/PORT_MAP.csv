@@ -1,0 +1,75 @@
+switch,port,connected_device,mode,vlan,notes
+NXS-CORE-SW,Gi1/0/1,NXS-GW G0/0,trunk,"10,20,30,40,99",native VLAN 99; router-on-a-stick
+NXS-CORE-SW,Gi1/0/2,NXS-ENG-SW Gi1/0/25,trunk,"30,99",Po1 member; fibre
+NXS-CORE-SW,Gi1/0/3,NXS-ENG-SW Gi1/0/26,trunk,"30,99",Po1 member; fibre
+NXS-CORE-SW,Gi1/0/4,SRV-DNS 192.168.10.10,access,10,server
+NXS-CORE-SW,Gi1/0/5,SRV-FILE 192.168.10.11,access,10,server
+NXS-CORE-SW,Gi1/0/6,SRV-ERP 192.168.10.12,access,10,server
+NXS-CORE-SW,Gi1/0/7,PRN-STAFF 192.168.10.130,access,20,staff printer
+NXS-CORE-SW,Gi1/0/8,STF-PC-01,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/9,STF-PC-02,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/10,STF-PC-03,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/11,STF-PC-04,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/12,STF-PC-05,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/13,STF-PC-06,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/14,STF-PC-07,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/15,STF-PC-08,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/16,STF-PC-09,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/17,STF-PC-10,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/18,STF-PC-11,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/19,STF-PC-12,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/20,STF-PC-13,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/21,STF-PC-14,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/22,STF-PC-15,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/23,STF-PC-16,access,20,staff workstation
+NXS-CORE-SW,Gi1/0/24,AP-ENG 192.168.10.196,trunk,"20,30,40,99",native VLAN 99
+NXS-CORE-SW,Gi1/0/25,AP-STAFF 192.168.10.197,trunk,"20,40,99",native VLAN 99
+NXS-CORE-SW,Gi1/0/26,AP-MGMT 192.168.10.198,trunk,"20,40,99",native VLAN 99
+NXS-CORE-SW,Gi1/0/27,PRN-ENG 192.168.10.125,access,30,engineering printer
+NXS-CORE-SW,Gi1/0/28,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/29,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/30,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/31,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/32,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/33,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/34,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/35,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/36,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/37,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/38,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/39,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/40,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/41,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/42,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/43,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/44,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/45,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/46,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/47,spare,access,999,shutdown
+NXS-CORE-SW,Gi1/0/48,spare,access,999,shutdown
+NXS-ENG-SW,Gi1/0/1,ENG-PC-01,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/2,ENG-PC-02,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/3,ENG-PC-03,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/4,ENG-PC-04,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/5,ENG-PC-05,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/6,ENG-PC-06,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/7,ENG-PC-07,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/8,ENG-PC-08,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/9,ENG-PC-09,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/10,ENG-PC-10,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/11,ENG-PC-11,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/12,ENG-PC-12,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/13,ENG-PC-13,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/14,ENG-PC-14,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/15,ENG-PC-15,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/16,ENG-PC-16,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/17,ENG-PC-17,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/18,ENG-PC-18,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/19,ENG-PC-19,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/20,ENG-PC-20,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/21,ENG-PC-21,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/22,ENG-PC-22,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/23,ENG-PC-23,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/24,ENG-PC-24,access,30,engineering workstation
+NXS-ENG-SW,Gi1/0/25,NXS-CORE-SW Gi1/0/2,trunk,"30,99",Po2 member; fibre
+NXS-ENG-SW,Gi1/0/26,NXS-CORE-SW Gi1/0/3,trunk,"30,99",Po2 member; fibre
