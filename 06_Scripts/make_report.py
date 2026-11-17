@@ -438,15 +438,6 @@ def cover():
 
     p = doc.add_paragraph()
     p.alignment = CENTER
-    p.paragraph_format.space_after = Pt(3)
-    p.paragraph_format.line_spacing = 1.2
-    run = p.add_run(
-        "Submitted in partial fulfilment of the requirements for the course\n"
-        "Computer Networks Laboratory (2304312L)")
-    set_run_font(run, size=10, italic=True, color=GREY)
-
-    p = doc.add_paragraph()
-    p.alignment = CENTER
     p.paragraph_format.space_before = Pt(18)
     p.paragraph_format.space_after = Pt(0)
     run = p.add_run(f"Academic Year {P.STUDENT['academic_year']}   |   November 2026")

@@ -4,14 +4,6 @@ Design of a local area network for a small office: architecture, IP addressing a
 
 The site is a 2,800 sq ft office floor with 48 wired drops, up to 24 concurrent wireless clients and a 100 Mbps internet link. Site details are anonymised.
 
-## Project team
-
-- Sanskar Chandawar
-- Yuvraj Gopchade
-- Sanchit Ichole
-
-Computer Engineering, Third Year — Computer Networks Laboratory, MIT Academy of Engineering, Pune (2026–27).
-
 ![Logical topology](02_Network_Design/topology.png)
 
 ## Design summary
