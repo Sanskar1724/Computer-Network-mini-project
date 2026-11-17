@@ -4,6 +4,14 @@ Design of a local area network for a small office: architecture, IP addressing a
 
 The site is a 2,800 sq ft office floor with 48 wired drops, up to 24 concurrent wireless clients and a 100 Mbps internet link. Site details are anonymised.
 
+## Project team
+
+- Sanskar Chandawar
+- Yuvraj Gopchade
+- Sanchit Ichole
+
+Computer Engineering, Third Year — Computer Networks Laboratory, MIT Academy of Engineering, Pune (2026–27).
+
 ![Logical topology](02_Network_Design/topology.png)
 
 ## Design summary
@@ -71,6 +79,6 @@ python make_report.py
 
 `project_data.py` is the single source for VLANs, addresses, rooms and the bill of materials; every other script reads from it.
 
-The final report (DOCX/PDF) is not included in this repository. `make_report.py` builds it, and reads the cover-page student details from an optional `06_Scripts/student_details.json` with the keys `prn`, `roll` and `division`.
+The final report (DOCX/PDF) is not included in this repository. `make_report.py` builds it, and reads the cover-page PRNs and division from an optional `06_Scripts/student_details.json` with the keys `prn`, `division` and `partner_prns` (a map from each partner's name to their PRN).
 
 The passwords in the config templates are placeholders (`CHANGE_ME_...`) and must be replaced before any deployment.

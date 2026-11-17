@@ -58,7 +58,7 @@ def header_row(ws, row, headers):
 def write_bom(ws):
     style_title(ws, 1, 7, "NexaSoft Office LAN - Bill of Materials",
                 "Budgetary CapEx estimate for 48 wired drops and 24 wireless clients | "
-                "Sanskar Chandawar | 2026-27")
+                f"{P.TEAM_NAMES} | 2026-27")
     headers = ["#", "Category", "Item", "Specification", "Qty",
                "Unit Rate (Rs.)", "Amount (Rs.)"]
     header_row(ws, 4, headers)

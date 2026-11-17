@@ -24,6 +24,16 @@ if _details.exists():
     import json
     STUDENT.update(json.loads(_details.read_text(encoding="utf-8")))
 
+# Project team, in cover-page order. PRNs come from student_details.json.
+TEAM = [
+    {"name": STUDENT["name"], "prn": STUDENT["prn"]},
+    {"name": "Yuvraj Gopchade", "prn": "<PRN>"},
+    {"name": "Sanchit Ichole", "prn": "<PRN>"},
+]
+for _member in TEAM[1:]:
+    _member["prn"] = STUDENT.get("partner_prns", {}).get(_member["name"], _member["prn"])
+TEAM_NAMES = ", ".join(m["name"] for m in TEAM)
+
 PROJECT = {
     "title": ("Design and Implementation of a Local Area Network for a "
               "Small Office: Architecture, IP Addressing and Cost Analysis"),

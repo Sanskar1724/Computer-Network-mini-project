@@ -412,18 +412,26 @@ def cover():
     run = p.add_run("Submitted by")
     set_run_font(run, size=10.5, italic=True, color=GREY)
 
-    p = doc.add_paragraph()
-    p.alignment = CENTER
-    p.paragraph_format.space_after = Pt(2)
-    run = p.add_run(P.STUDENT["name"])
-    set_run_font(run, size=15, bold=True, color=DARK)
+    team = doc.add_table(rows=len(P.TEAM), cols=2)
+    team.alignment = WD_TABLE_ALIGNMENT.CENTER
+    for row, member in zip(team.rows, P.TEAM):
+        row.cells[0].width = Inches(2.4)
+        row.cells[1].width = Inches(1.9)
+        for cell, text, bold, size in ((row.cells[0], member["name"], True, 13),
+                                       (row.cells[1], f"PRN: {member['prn']}", False, 11)):
+            cp = cell.paragraphs[0]
+            cp.alignment = LEFT
+            cp.paragraph_format.space_before = Pt(2)
+            cp.paragraph_format.space_after = Pt(2)
+            cp.paragraph_format.line_spacing = 1.0
+            set_run_font(cp.add_run(text), size=size, bold=bold, color=DARK)
 
     p = doc.add_paragraph()
     p.alignment = CENTER
+    p.paragraph_format.space_before = Pt(8)
     p.paragraph_format.space_after = Pt(16)
     p.paragraph_format.line_spacing = 1.15
     run = p.add_run(
-        f"PRN: {P.STUDENT['prn']}   |   Roll No: {P.STUDENT['roll']}   |   "
         f"Division and Batch: {P.STUDENT['division']}\n"
         f"{P.STUDENT['program']}, {P.STUDENT['year']}, Semester {P.STUDENT['semester']}")
     set_run_font(run, size=10.5, color=DARK)
@@ -1270,7 +1278,7 @@ def build():
     configure_styles(doc)
     configure_document(doc)
     doc.core_properties.title = P.PROJECT["title"]
-    doc.core_properties.author = P.STUDENT["name"]
+    doc.core_properties.author = P.TEAM_NAMES
     doc.core_properties.subject = "Computer Networks Laboratory mini project"
     doc.core_properties.keywords = "LAN, VLAN, VLSM, DHCP, DNS, NAT, Cisco"
     doc.core_properties.comments = "Assignment 8 mini project report"
